@@ -5,7 +5,11 @@ namespace Kata_StringCalc
         [Fact]
         public void Return0GivenEmptyString()
         {
+            var calculator = new StringCalculator();
 
+            var result = calculator.Add("");
+
+            Assert.Equal(0, result);
         }
     }
 }
