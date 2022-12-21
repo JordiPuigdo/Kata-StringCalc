@@ -1,13 +1,14 @@
 namespace Kata_StringCalc
 {
+  
     public class StringCalculator_Add
     {
+        private StringCalculator _calculator = new StringCalculator();
+
         [Fact]
         public void Return0GivenEmptyString()
         {
-            var calculator = new StringCalculator();
-
-            var result = calculator.Add("");
+            var result = _calculator.Add("");
 
             Assert.Equal(0, result);
         }
@@ -18,9 +19,8 @@ namespace Kata_StringCalc
         public void ReturnsSumGivenStringWithTwoCommaSeparatedNumbers( string 
                 numbers, int expectedResult)
         {
-            var calculator = new StringCalculator();
 
-            var result = calculator.Add(numbers);
+            var result = _calculator.Add(numbers);
 
             Assert.Equal(expectedResult, result);
         }
