@@ -13,9 +13,9 @@ namespace Kata_StringCalc
         }
 
         [Theory]
-        [InlineData("1",1)]
-        [InlineData("2", 2)]
-        public void Return1GivenStringWith1( string 
+        [InlineData("1,2",3)]
+        [InlineData("2,3", 5)]
+        public void ReturnsSumGivenStringWithTwoCommaSeparatedNumbers( string 
                 numbers, int expectedResult)
         {
             var calculator = new StringCalculator();
