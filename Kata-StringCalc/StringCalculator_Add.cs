@@ -24,5 +24,19 @@ namespace Kata_StringCalc
 
             Assert.Equal(expectedResult, result);
         }
+
+
+        [Theory]
+        [InlineData("1,2,4", 6)]
+        [InlineData("2,3,4", 9)]
+        public void ReturnsSumGivenStringWithThreeCommaSeparatedNumbers(string
+        numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
+
     }
 }
