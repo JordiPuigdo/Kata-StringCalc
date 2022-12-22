@@ -77,6 +77,19 @@ namespace Kata_StringCalc
         }
 
 
+        [Theory]
+        [InlineData("1,2,3000", 7)]
+        [InlineData("2003,4", 9)]
+        [InlineData("1000,2", 2)]
+        public void ReturnsSumGivenStringIgnoringValuesOver1000(string
+           numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
+
 
     }
 }
