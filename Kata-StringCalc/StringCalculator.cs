@@ -6,8 +6,22 @@
         {
             if (string.IsNullOrEmpty(numbers)) return 0;
 
+            var delimiters = new List<Char> { ',', '\n' };
 
-            var result = numbers.Split(",")
+            string numberString = numbers;
+
+            if (numberString.StartsWith("//"))
+            {
+                var splitInput = numberString.Split('\n');
+
+                var newDelimeter = splitInput.First().Trim('/');
+
+                numberString = String.Join('\n',splitInput.Skip(1));
+
+                delimiters.Add(Convert.ToChar(newDelimeter));
+            }
+
+            var result = numberString.Split(delimiters.ToArray())
                     .Select(s => int.Parse(s))
                     .Sum();
 

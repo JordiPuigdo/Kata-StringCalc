@@ -27,7 +27,7 @@ namespace Kata_StringCalc
 
 
         [Theory]
-        [InlineData("1,2,4", 6)]
+        [InlineData("1,2,4", 7)]
         [InlineData("2,3,4", 9)]
         public void ReturnsSumGivenStringWithThreeCommaSeparatedNumbers(string
         numbers, int expectedResult)
@@ -37,6 +37,33 @@ namespace Kata_StringCalc
 
             Assert.Equal(expectedResult, result);
         }
+
+
+        [Theory]
+        [InlineData("1\n2,3", 6)]
+        [InlineData("1\n2\n3", 6)]
+        [InlineData("1,2\n3", 6)]
+        public void ReturnsSumGivenStringWithThreeCommaOrNewLineSeparatedNumbers(string
+        numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Theory]
+        [InlineData("//;\n1;2;3", 6)]       
+        public void ReturnsSumGivenStringWithCostumDelimeter(string
+        numbers, int expectedResult)
+        {
+
+            var result = _calculator.Add(numbers);
+
+            Assert.Equal(expectedResult, result);
+        }
+
+
 
     }
 }
